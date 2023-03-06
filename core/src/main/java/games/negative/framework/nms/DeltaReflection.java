@@ -32,12 +32,14 @@ import com.mojang.authlib.properties.Property;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
 @UtilityClass
 @Deprecated // Unused
+@ApiStatus.ScheduledForRemoval(inVersion = "3.3.x")
 public class DeltaReflection {
 
     @SneakyThrows
