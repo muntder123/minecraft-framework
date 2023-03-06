@@ -29,10 +29,12 @@ package games.negative.framework.database.builder;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.jetbrains.annotations.ApiStatus;
 
 @Data
 @AllArgsConstructor
 @Deprecated
+@ApiStatus.ScheduledForRemoval(inVersion = "3.3.x")
 public class LoginBuilder {
 
     private String ip;

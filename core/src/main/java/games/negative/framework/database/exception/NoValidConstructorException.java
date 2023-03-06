@@ -27,7 +27,10 @@
 
 package games.negative.framework.database.exception;
 
+import org.jetbrains.annotations.ApiStatus;
+
 @Deprecated
+@ApiStatus.ScheduledForRemoval(inVersion = "3.3.x")
 public class NoValidConstructorException extends Exception {
 
     public NoValidConstructorException(String message) {

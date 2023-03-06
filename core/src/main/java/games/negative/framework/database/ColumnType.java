@@ -27,6 +27,8 @@
 
 package games.negative.framework.database;
 
+import org.jetbrains.annotations.ApiStatus;
+
 /**
  * Represents the type of value within a table
  *
@@ -44,6 +46,7 @@ package games.negative.framework.database;
  * <p>{@code BLOB} represents a {@link java.sql.Blob}</p>
  */
 @Deprecated
+@ApiStatus.ScheduledForRemoval(inVersion = "3.3.x")
 public enum ColumnType {
 
     VARCHAR,

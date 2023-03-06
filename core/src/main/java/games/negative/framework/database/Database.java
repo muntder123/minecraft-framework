@@ -37,6 +37,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -103,6 +104,7 @@ import java.util.logging.Level;
 @Getter
 @Setter
 @Deprecated
+@ApiStatus.ScheduledForRemoval(inVersion = "3.3.x")
 public class Database {
 
     private boolean debug;

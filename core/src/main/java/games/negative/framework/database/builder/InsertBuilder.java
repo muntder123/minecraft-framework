@@ -28,11 +28,13 @@
 package games.negative.framework.database.builder;
 
 import lombok.Getter;
+import org.jetbrains.annotations.ApiStatus;
 
 import java.util.HashMap;
 
 @Getter
 @Deprecated
+@ApiStatus.ScheduledForRemoval(inVersion = "3.3.x")
 public class InsertBuilder {
 
     private String table;

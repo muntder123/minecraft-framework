@@ -30,6 +30,7 @@ package games.negative.framework.database.builder;
 import games.negative.framework.database.Column;
 import games.negative.framework.database.ColumnType;
 import lombok.Data;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -41,6 +42,7 @@ import java.util.List;
  */
 @Data
 @Deprecated
+@ApiStatus.ScheduledForRemoval(inVersion = "3.3.x")
 public class TableBuilder {
     private final String name;
     private final List<Column> columns;

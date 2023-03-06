@@ -30,6 +30,7 @@ package games.negative.framework.database;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.SneakyThrows;
+import org.jetbrains.annotations.ApiStatus;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -42,6 +43,7 @@ import java.sql.ResultSet;
 @Data
 @AllArgsConstructor
 @Deprecated
+@ApiStatus.ScheduledForRemoval(inVersion = "3.3.x")
 public class Statement {
 
     private String value;

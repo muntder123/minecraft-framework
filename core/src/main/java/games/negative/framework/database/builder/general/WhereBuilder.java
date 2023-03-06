@@ -28,9 +28,11 @@
 package games.negative.framework.database.builder.general;
 
 import lombok.Getter;
+import org.jetbrains.annotations.ApiStatus;
 
 @Getter
 @Deprecated
+@ApiStatus.ScheduledForRemoval(inVersion = "3.3.x")
 public class WhereBuilder {
 
     private String key;

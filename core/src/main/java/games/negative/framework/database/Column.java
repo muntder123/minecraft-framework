@@ -28,6 +28,7 @@
 package games.negative.framework.database;
 
 import lombok.Data;
+import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Represents a value in a table
@@ -36,6 +37,7 @@ import lombok.Data;
  */
 @Data
 @Deprecated
+@ApiStatus.ScheduledForRemoval(inVersion = "3.3.x")
 public class Column {
     private final ColumnType type;
     private final String name;
