@@ -29,6 +29,7 @@ package games.negative.framework.util;
 
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
@@ -39,6 +40,7 @@ import java.net.URL;
 
 @UtilityClass
 @Deprecated
+@ApiStatus.ScheduledForRemoval(inVersion = "3.3.x")
 public class UtilHTTP {
 
     /**
