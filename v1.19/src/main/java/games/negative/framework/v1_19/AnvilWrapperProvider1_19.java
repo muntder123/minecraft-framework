@@ -12,9 +12,9 @@ import net.minecraft.world.inventory.Container;
 import net.minecraft.world.inventory.ContainerAccess;
 import net.minecraft.world.inventory.ContainerAnvil;
 import net.minecraft.world.inventory.Containers;
-import org.bukkit.craftbukkit.v1_19_R2.CraftWorld;
-import org.bukkit.craftbukkit.v1_19_R2.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_19_R2.event.CraftEventFactory;
+import org.bukkit.craftbukkit.v1_19_R3.CraftWorld;
+import org.bukkit.craftbukkit.v1_19_R3.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_19_R3.event.CraftEventFactory;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
@@ -56,12 +56,12 @@ public class AnvilWrapperProvider1_19 implements AnvilVersionWrapper {
 
     @Override
     public void setActiveContainerDefault(Player player) {
-        toNMS(player).bU = toNMS(player).bT;
+        toNMS(player).bP = toNMS(player).bO;
     }
 
     @Override
     public void setActiveContainer(Player player, Object container) {
-        toNMS(player).bU = (Container) container;
+        toNMS(player).bP = (Container) container;
     }
 
     @Override
@@ -86,15 +86,15 @@ public class AnvilWrapperProvider1_19 implements AnvilVersionWrapper {
         public AnvilContainer(Player player, int containerId, String guiTitle) {
             super(
                     containerId,
-                    ((CraftPlayer) player).getHandle().fE(),
+                    ((CraftPlayer) player).getHandle().fJ(),
                     ContainerAccess.a(((CraftWorld) player.getWorld()).getHandle(), new BlockPosition(0, 0, 0)));
             this.checkReachable = false;
             setTitle(IChatBaseComponent.a(guiTitle));
         }
 
         @Override
-        public void l() {
-            super.l();
+        public void m() {
+            super.m();
             this.w.a(0);
         }
 

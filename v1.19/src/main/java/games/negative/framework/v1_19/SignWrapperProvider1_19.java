@@ -16,9 +16,10 @@ import net.minecraft.world.level.block.entity.TileEntitySign;
 import org.bukkit.DyeColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_19_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_19_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
+import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
@@ -62,7 +63,22 @@ public class SignWrapperProvider1_19 implements SignVersionWrapper {
         conn.a(sign.c());
         conn.a(new PacketPlayOutOpenSignEditor(pos));
 
-        ChannelPipeline pipeline = conn.b.m.pipeline();
+        // Using reflections to get the pipeline cause h is private
+        // and cannot get it any other way from my knowledge
+        ChannelPipeline pipeline;
+        try {
+            Field field = conn.getClass().getDeclaredField("h");
+
+            field.setAccessible(true);
+
+            Object hValue = field.get(conn);
+
+            pipeline = (ChannelPipeline) hValue.getClass().getDeclaredField("pipeline").get(hValue);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            System.out.println("[SignGUI] Failed to get pipeline");
+            throw new RuntimeException(e);
+        }
+
         if (pipeline.names().contains("SignGUI"))
             pipeline.remove("SignGUI");
         pipeline.addAfter("decoder", "SignGUI", new MessageToMessageDecoder<Packet<?>>() {
@@ -71,7 +87,7 @@ public class SignWrapperProvider1_19 implements SignVersionWrapper {
                 try {
                     if (packet instanceof PacketPlayInUpdateSign) {
                         PacketPlayInUpdateSign updateSign = (PacketPlayInUpdateSign) packet;
-                        if (updateSign.b().equals(pos)) {
+                        if (updateSign.a().equals(pos)) {
                             String[] response = function.apply(player, updateSign.c());
                             if (response != null) {
                                 String[] newLines = Arrays.copyOf(response, 4);
