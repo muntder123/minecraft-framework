@@ -86,15 +86,15 @@ public class AnvilWrapperProvider1_19 implements AnvilVersionWrapper {
         public AnvilContainer(Player player, int containerId, String guiTitle) {
             super(
                     containerId,
-                    ((CraftPlayer) player).getHandle().ffE(),
+                    ((CraftPlayer) player).getHandle().fJ(),
                     ContainerAccess.a(((CraftWorld) player.getWorld()).getHandle(), new BlockPosition(0, 0, 0)));
             this.checkReachable = false;
             setTitle(IChatBaseComponent.a(guiTitle));
         }
 
         @Override
-        public void l() {
-            super.l();
+        public void m() {
+            super.m();
             this.w.a(0);
         }
 

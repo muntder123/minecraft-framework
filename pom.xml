@@ -6,7 +6,7 @@
 
     <groupId>games.negative.framework</groupId>
     <artifactId>minecraft-framework</artifactId>
-    <version>3.2.4</version>
+    <version>3.2.5</version>
     <modules>
         <module>abstract</module>
         <module>core</module>
