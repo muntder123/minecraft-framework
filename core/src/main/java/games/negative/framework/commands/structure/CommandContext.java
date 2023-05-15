@@ -1,4 +1,4 @@
-package games.negative.framework.commands.context;
+package games.negative.framework.commands.structure;
 
 import com.google.common.base.Preconditions;
 import games.negative.framework.commands.Context;
