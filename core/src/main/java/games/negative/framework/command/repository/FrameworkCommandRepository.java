@@ -35,6 +35,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@Deprecated
 public class FrameworkCommandRepository implements CommandRepository {
 
     private final Set<Command> repository = new HashSet<>();

@@ -34,6 +34,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import java.util.Arrays;
 
+@Deprecated
 public class ShortCommandsListener implements Listener {
 
     private final ShortCommands shortCommands;

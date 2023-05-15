@@ -38,6 +38,7 @@ import org.bukkit.entity.Player;
 @RequiredArgsConstructor
 @Getter
 @Setter
+@Deprecated
 public class SubCommandLogEvent extends PluginEvent {
 
     private final CommandSender sender;

@@ -54,6 +54,7 @@ import java.util.function.Function;
 
 @Getter
 @Setter
+@Deprecated
 public abstract class Command extends org.bukkit.command.Command implements CommandBase {
     private final List<SubCommand> subCommands = new ArrayList<>();
 

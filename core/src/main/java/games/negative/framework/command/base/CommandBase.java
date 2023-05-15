@@ -44,6 +44,7 @@ import java.util.function.Function;
 /**
  * The base class for all commands.
  */
+@Deprecated
 public interface CommandBase {
 
     /**
