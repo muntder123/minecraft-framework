@@ -34,6 +34,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
+@Deprecated
 public class ShortCommandsProvider extends ShortCommands {
 
     private final HashMap<Command, ArrayList<String>> commandShortCommands = new HashMap<>();

@@ -36,6 +36,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
+@Deprecated
 public abstract class ShortCommands {
 
     @Getter

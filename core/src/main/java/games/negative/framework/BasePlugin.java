@@ -33,6 +33,8 @@ import games.negative.framework.command.logging.CommandLogListener;
 import games.negative.framework.command.repository.CommandRepository;
 import games.negative.framework.command.repository.FrameworkCommandRepository;
 import games.negative.framework.command.shortcommand.provider.ShortCommandsListener;
+import games.negative.framework.commands.CommandBuilder;
+import games.negative.framework.commands.structure.FrameworkCommand;
 import games.negative.framework.cooldown.Cooldowns;
 import games.negative.framework.gui.listener.GUIListener;
 import games.negative.framework.inputlistener.InputListener;
@@ -174,6 +176,39 @@ public abstract class BasePlugin extends JavaPlugin {
                 e.printStackTrace();
             }
         });
+    }
+
+    @SneakyThrows
+    private void registerCommand(@NotNull CommandBuilder builder) {
+        VersionChecker version = VersionChecker.getInstance();
+        boolean legacy = version.isLegacy();
+
+        Server server = Bukkit.getServer();
+        Field field = server.getClass().getDeclaredField("commandMap");
+        field.setAccessible(true);
+
+        CommandMap commandMap = (CommandMap) field.get(server);
+
+        String name = builder.getName();
+
+        Command existing = commandMap.getCommand(name);
+        if (existing != null) {
+            Map<String, Command> map;
+            if (legacy) {
+                Field commandField = commandMap.getClass().getDeclaredField("knownCommands");
+                commandField.setAccessible(true);
+                map = (Map<String, Command>) commandField.get(commandMap);
+            } else {
+                map = (Map<String, Command>) commandMap.getClass().getDeclaredMethod("getKnownCommands").invoke(commandMap);
+            }
+            existing.unregister(commandMap);
+            map.remove(name);
+            existing.getAliases().forEach(map::remove);
+        }
+
+        FrameworkCommand command = builder.build();
+        commandRepository.add(command);
+        commandMap.register(name, command);
     }
 
     /**

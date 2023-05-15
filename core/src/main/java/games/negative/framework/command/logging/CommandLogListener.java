@@ -32,6 +32,7 @@ import games.negative.framework.command.event.SubCommandLogEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
+@Deprecated
 public class CommandLogListener implements Listener {
 
     @EventHandler
