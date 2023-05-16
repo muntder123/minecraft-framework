@@ -179,7 +179,7 @@ public abstract class BasePlugin extends JavaPlugin {
     }
 
     @SneakyThrows
-    private void registerCommand(@NotNull CommandBuilder builder) {
+    public void registerCommand(@NotNull CommandBuilder builder) {
         VersionChecker version = VersionChecker.getInstance();
         boolean legacy = version.isLegacy();
 
