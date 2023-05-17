@@ -46,6 +46,11 @@ public class FrameworkCommand extends org.bukkit.command.Command {
 
         if (builder.getUsage() != null)
             this.setUsage(builder.getUsage());
+
+        for (CommandBuilder cmd : builder.getSubCommands()) {
+            FrameworkCommand subCommand = new FrameworkCommand(this, cmd);
+            this.subCommands.add(subCommand);
+        }
     }
 
     @Override
