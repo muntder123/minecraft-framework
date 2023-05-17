@@ -6,6 +6,7 @@ import games.negative.framework.commands.structure.FrameworkCommand;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -23,6 +24,7 @@ public class CommandBuilder {
     private boolean playerOnly;
     private String[] permissions;
     private String[] params;
+    private final List<CommandBuilder> subCommands;
 
     /**
      * Creates a new command builder.
@@ -31,6 +33,7 @@ public class CommandBuilder {
     public CommandBuilder(@NotNull Command component) {
         Preconditions.checkNotNull(component, "Command component cannot be null.");
         this.component = component;
+        this.subCommands = Lists.newArrayList();
     }
 
     /**
@@ -142,6 +145,12 @@ public class CommandBuilder {
         return this;
     }
 
+    public CommandBuilder subcommands(CommandBuilder... commands) {
+        Preconditions.checkNotNull(commands, "Command subcommands cannot be null.");
+        subCommands.addAll(Arrays.asList(commands));
+        return this;
+    }
+
     /**
      * Set the parameters of the command.
      * @return The command builder.
@@ -221,5 +230,9 @@ public class CommandBuilder {
      */
     public Command getComponent() {
         return component;
+    }
+
+    public List<CommandBuilder> getSubCommands() {
+        return subCommands;
     }
 }
