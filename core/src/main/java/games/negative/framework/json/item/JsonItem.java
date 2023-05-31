@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 
 @Data
+@Deprecated
 public class JsonItem {
 
     @SerializedName("display-name")

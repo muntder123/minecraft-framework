@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @RequiredArgsConstructor
+@Deprecated
 public class JsonOptionalDataValue implements Keyd<String> {
 
     private final String key;

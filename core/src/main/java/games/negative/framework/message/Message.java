@@ -43,20 +43,16 @@ public class Message {
     private String message;
 
     public Message(@NotNull String... msg) {
-        String actual = String.join("\n", msg);
-        setMessage(actual);
-        this.initial = actual;
+        this(String.join("\n", msg));
+    }
+
+    public Message(@NotNull Collection<String> msg) {
+        this(String.join("\n", msg));
     }
 
     public Message(@NotNull String msg) {
         setMessage(msg);
         this.initial = msg;
-    }
-
-    public Message(@NotNull Collection<String> msg) {
-        String actual = String.join("\n", msg);
-        setMessage(actual);
-        this.initial = actual;
     }
 
     /**

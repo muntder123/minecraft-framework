@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 @RequiredArgsConstructor
+@Deprecated
 public enum JsonTextTranslator {
 
     BLACK("&0"),

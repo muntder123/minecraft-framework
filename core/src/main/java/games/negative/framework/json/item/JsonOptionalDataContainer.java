@@ -5,6 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @RequiredArgsConstructor
+@Deprecated
 public class JsonOptionalDataContainer {
 
     private final JsonOptionalDataValue[] values;
