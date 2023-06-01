@@ -34,6 +34,7 @@ public class CommandBuilder {
         Preconditions.checkNotNull(component, "Command component cannot be null.");
         this.component = component;
         this.subCommands = Lists.newArrayList();
+        this.aliases = Lists.newArrayList();
     }
 
     /**
