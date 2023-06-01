@@ -35,6 +35,8 @@ public class CommandBuilder {
         this.component = component;
         this.subCommands = Lists.newArrayList();
         this.aliases = Lists.newArrayList();
+        this.usage = "";
+        this.description = "";
     }
 
     /**
