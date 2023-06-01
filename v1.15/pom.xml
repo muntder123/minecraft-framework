@@ -5,7 +5,7 @@
     <parent>
         <artifactId>minecraft-framework</artifactId>
         <groupId>games.negative.framework</groupId>
-        <version>3.3.7</version>
+        <version>3.3.8</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -58,7 +58,7 @@
         <dependency>
             <groupId>games.negative.framework.abstract</groupId>
             <artifactId>abstract</artifactId>
-            <version>3.3.7</version>
+            <version>3.3.8</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
