@@ -41,9 +41,6 @@ public class FrameworkCommand extends org.bukkit.command.Command {
         this.permissions = builder.getPermissions();
         this.params = builder.getParams();
 
-        if (builder.getDescription() != null)
-            this.setDescription(builder.getDescription());
-
         if (builder.getUsage() != null)
             this.setUsage(builder.getUsage());
 
@@ -55,7 +52,7 @@ public class FrameworkCommand extends org.bukkit.command.Command {
 
     @Override
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
-        if (playerOnly && sender instanceof Player) {
+        if (playerOnly && !(sender instanceof Player)) {
             FrameworkMessage.COMMAND_CANNOT_USE_THIS_AS_CONSOLE.send(sender);
             return true;
         }
