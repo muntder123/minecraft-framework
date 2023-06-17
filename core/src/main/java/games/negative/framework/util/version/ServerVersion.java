@@ -40,7 +40,7 @@ import org.jetbrains.annotations.NotNull;
  * checks the version of the server for API reasons.
  */
 public enum ServerVersion {
-
+    V1_20,
     V1_19,
     V1_18,
     V1_17,

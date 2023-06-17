@@ -1,4 +1,4 @@
-package games.negative.framework.v1_19;
+package games.negative.framework.v1_20;
 
 import games.negative.framework.base.gui.anvil.AnvilVersionWrapper;
 import net.minecraft.core.BlockPosition;
@@ -12,13 +12,13 @@ import net.minecraft.world.inventory.Container;
 import net.minecraft.world.inventory.ContainerAccess;
 import net.minecraft.world.inventory.ContainerAnvil;
 import net.minecraft.world.inventory.Containers;
-import org.bukkit.craftbukkit.v1_19_R3.CraftWorld;
-import org.bukkit.craftbukkit.v1_19_R3.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_19_R3.event.CraftEventFactory;
+import org.bukkit.craftbukkit.v1_20_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_20_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_20_R1.event.CraftEventFactory;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
-public class AnvilWrapperProvider1_19 implements AnvilVersionWrapper {
+public class AnvilWrapperProvider1_20 implements AnvilVersionWrapper {
 
     private int getRealNextContainerId(Player player) {
         return toNMS(player).nextContainerCounter();
@@ -46,22 +46,22 @@ public class AnvilWrapperProvider1_19 implements AnvilVersionWrapper {
 
     @Override
     public void sendPacketOpenWindow(Player player, int containerId, String inventoryTitle) {
-        toNMS(player).b.a(new PacketPlayOutOpenWindow(containerId, Containers.h, IChatBaseComponent.a(inventoryTitle)));
+        toNMS(player).c.a(new PacketPlayOutOpenWindow(containerId, Containers.h, IChatBaseComponent.a(inventoryTitle)));
     }
 
     @Override
     public void sendPacketCloseWindow(Player player, int containerId) {
-        toNMS(player).b.a(new PacketPlayOutCloseWindow(containerId));
+        toNMS(player).c.a(new PacketPlayOutCloseWindow(containerId));
     }
 
     @Override
     public void setActiveContainerDefault(Player player) {
-        toNMS(player).bP = toNMS(player).bO;
+        toNMS(player).bR = toNMS(player).bQ;
     }
 
     @Override
     public void setActiveContainer(Player player, Object container) {
-        toNMS(player).bP = (Container) container;
+        toNMS(player).bR = (Container) container;
     }
 
     @Override
@@ -86,7 +86,7 @@ public class AnvilWrapperProvider1_19 implements AnvilVersionWrapper {
         public AnvilContainer(Player player, int containerId, String guiTitle) {
             super(
                     containerId,
-                    ((CraftPlayer) player).getHandle().fJ(),
+                    ((CraftPlayer) player).getHandle().fN(),
                     ContainerAccess.a(((CraftWorld) player.getWorld()).getHandle(), new BlockPosition(0, 0, 0)));
             this.checkReachable = false;
             setTitle(IChatBaseComponent.a(guiTitle));
