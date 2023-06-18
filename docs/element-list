@@ -15,12 +15,6 @@ games.negative.framework.commands
 games.negative.framework.commands.structure
 games.negative.framework.cooldown
 games.negative.framework.cooldown.internal
-games.negative.framework.database
-games.negative.framework.database.annotation
-games.negative.framework.database.annotation.constructor
-games.negative.framework.database.builder
-games.negative.framework.database.builder.general
-games.negative.framework.database.exception
 games.negative.framework.event
 games.negative.framework.event.armor
 games.negative.framework.event.armor.internal
@@ -57,5 +51,6 @@ games.negative.framework.v1_16
 games.negative.framework.v1_17
 games.negative.framework.v1_18
 games.negative.framework.v1_19
+games.negative.framework.v1_20
 games.negative.framework.v1_8
 games.negative.framework.v1_9
