@@ -86,9 +86,7 @@ public abstract class BasePlugin extends JavaPlugin {
 
         registerListeners(
                 new GUIListener(),
-                new ShortCommandsListener(),
-                new InputListener(),
-                new CommandLogListener()
+                new InputListener()
         );
 
         armorListener = new ArmorListener();
