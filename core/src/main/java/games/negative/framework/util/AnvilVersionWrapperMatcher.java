@@ -12,6 +12,7 @@ import games.negative.framework.v1_16.AnvilWrapperProvider1_16;
 import games.negative.framework.v1_17.AnvilWrapperProvider1_17;
 import games.negative.framework.v1_18.AnvilWrapperProvider1_18;
 import games.negative.framework.v1_19.AnvilWrapperProvider1_19;
+import games.negative.framework.v1_20.AnvilWrapperProvider1_20;
 import games.negative.framework.v1_8.AnvilWrapperProvider1_8;
 import games.negative.framework.v1_9.AnvilWrapperProvider1_9;
 
@@ -37,6 +38,7 @@ public class AnvilVersionWrapperMatcher {
             case V1_17: return new AnvilWrapperProvider1_17();
             case V1_18: return new AnvilWrapperProvider1_18();
             case V1_19: return new AnvilWrapperProvider1_19();
+            case V1_20: return new AnvilWrapperProvider1_20();
             default: return null;
         }
     }

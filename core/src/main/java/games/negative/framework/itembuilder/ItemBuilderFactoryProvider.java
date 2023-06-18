@@ -14,6 +14,7 @@ import games.negative.framework.v1_16.ItemBuilderProvider1_16;
 import games.negative.framework.v1_17.ItemBuilderProvider1_17;
 import games.negative.framework.v1_18.ItemBuilderProvider1_18;
 import games.negative.framework.v1_19.ItemBuilderProvider1_19;
+import games.negative.framework.v1_20.ItemBuilderProvider1_20;
 import games.negative.framework.v1_8.ItemBuilderProvider1_8;
 import games.negative.framework.v1_9.ItemBuilderProvider1_9;
 import org.bukkit.Material;
@@ -55,6 +56,8 @@ public class ItemBuilderFactoryProvider extends ItemBuilderFactory {
                 return new ItemBuilderProvider1_18(itemStack);
             case V1_19:
                 return new ItemBuilderProvider1_19(itemStack);
+            case V1_20:
+                return new ItemBuilderProvider1_20(itemStack);
             default:
                 throw new UnsupportedOperationException("Unsupported version: " + version);
         }

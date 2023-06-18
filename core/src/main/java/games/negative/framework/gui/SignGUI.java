@@ -39,6 +39,10 @@ public class SignGUI {
     static {
         ServerVersion version = new VersionChecker().getServerVersion();
         switch (version) {
+            case V1_20: {
+
+            }
+
             case V1_19: {
                 WRAPPER = new SignWrapperProvider1_19();
                 break;
