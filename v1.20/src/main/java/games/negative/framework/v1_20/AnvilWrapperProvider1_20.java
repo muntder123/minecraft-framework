@@ -8,13 +8,9 @@ import net.minecraft.network.protocol.game.PacketPlayOutOpenWindow;
 import net.minecraft.server.level.EntityPlayer;
 import net.minecraft.world.IInventory;
 import net.minecraft.world.entity.player.EntityHuman;
-import net.minecraft.world.inventory.Container;
-import net.minecraft.world.inventory.ContainerAccess;
-import net.minecraft.world.inventory.ContainerAnvil;
-import net.minecraft.world.inventory.Containers;
-import org.bukkit.craftbukkit.v1_20_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_20_R1.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_20_R1.event.CraftEventFactory;
+import net.minecraft.world.inventory.*;
+import org.bukkit.craftbukkit.v1_20_R3.CraftWorld;
+import org.bukkit.craftbukkit.v1_20_R3.event.CraftEventFactory;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
@@ -31,7 +27,7 @@ public class AnvilWrapperProvider1_20 implements AnvilVersionWrapper {
      * @return the NMS EntityPlayer
      */
     private EntityPlayer toNMS(Player player) {
-        return ((CraftPlayer) player).getHandle();
+        return ((EntityPlayer) player);
     }
 
     @Override
@@ -56,12 +52,12 @@ public class AnvilWrapperProvider1_20 implements AnvilVersionWrapper {
 
     @Override
     public void setActiveContainerDefault(Player player) {
-        toNMS(player).bR = toNMS(player).bQ;
+        toNMS(player).bS = toNMS(player).bR;
     }
 
     @Override
     public void setActiveContainer(Player player, Object container) {
-        toNMS(player).bR = (Container) container;
+        toNMS(player).bS = (Container) container;
     }
 
     @Override
@@ -86,7 +82,7 @@ public class AnvilWrapperProvider1_20 implements AnvilVersionWrapper {
         public AnvilContainer(Player player, int containerId, String guiTitle) {
             super(
                     containerId,
-                    ((CraftPlayer) player).getHandle().fN(),
+                    ((EntityPlayer) player).fS(),
                     ContainerAccess.a(((CraftWorld) player.getWorld()).getHandle(), new BlockPosition(0, 0, 0)));
             this.checkReachable = false;
             setTitle(IChatBaseComponent.a(guiTitle));
@@ -94,8 +90,16 @@ public class AnvilWrapperProvider1_20 implements AnvilVersionWrapper {
 
         @Override
         public void m() {
-            super.m();
+            Slot output = this.b(2);
+            if (!output.h()) {
+                output.e(this.b(0).g().p());
+            }
+
             this.w.a(0);
+
+            // Sync to the client
+            this.b();
+            this.d();
         }
 
         @Override
